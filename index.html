@@ -10,339 +10,218 @@
   :root{
     --bg:#0f0f12; --card:#17181d; --card-2:#1e2026; --text:#e8eef6; --muted:#9aa4b2;
     --brand:#00e6e6; --brand-2:#62fff6; --ring:0 0 0 2px rgba(0,230,230,.25);
-    --shadow:0 8px 30px rgba(0,0,0,.35); --radius:16px;
+    --shadow:0 6px 22px rgba(0,0,0,.33); 
+    --radius:14px;
   }
+
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
     margin:0;
-    font-family:system-ui,-apple-system,"Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji",
-               "Twemoji Mozilla", "EmojiOne Color", sans-serif,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans";
-    background:radial-gradient(1200px 800px at 20% -10%, #122027 0%, transparent 60%), var(--bg);
+    font-family:system-ui,-apple-system,"Segoe UI Emoji","Noto Color Emoji","Apple Color Emoji",sans-serif;
+    background:radial-gradient(1000px 700px at 20% -10%, #122027 0%, transparent 60%), var(--bg);
     color:var(--text);
     -webkit-tap-highlight-color:transparent;
     overflow-x:hidden;
   }
 
+  /* ---------- WRAP REDUCIDO ---------- */
   .wrap{
-    width:min(980px,92vw);
+    width:min(900px,94vw);
     margin:0 auto;
-    padding:calc(env(safe-area-inset-top,0px)+18px) 0 40px;
+    padding:calc(env(safe-area-inset-top,0px)+14px) 0 30px;
   }
 
+  /* ---------- TÍTULOS MÁS COMPACTOS ---------- */
   .title{
-    display:flex;gap:.6rem;align-items:center;
+    display:flex;gap:.55rem;align-items:center;
     color:var(--brand);
-    margin:8px 4px 14px;
-    font-weight:800;letter-spacing:.2px;font-size:1.45rem;
-    text-shadow:0 0 22px rgba(0,230,230,.2);
+    margin:6px 4px 10px;
+    font-weight:800;letter-spacing:.2px;font-size:1.28rem;
+    text-shadow:0 0 16px rgba(0,230,230,.18);
   }
 
+  /* ---------- CARDS REDUCIDAS ---------- */
   .card{
     background:linear-gradient(180deg,var(--card) 0%,var(--card-2) 100%);
     border-radius:var(--radius);
-    padding:14px;
+    padding:11px 12px;
     box-shadow:var(--shadow);
     border:1px solid rgba(255,255,255,.05);
-    margin:10px 0 18px;
-    overflow:visible;
+    margin:8px 0 14px;
     position:relative;
-    z-index:auto;
   }
 
-  #notaGenero {
-    margin-top: 6px;
-    font-size: 0.9rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    padding: 8px 10px;
-    line-height: 1.3;
-    transition: all 0.3s ease;
-  }
-
-  .hint{
-    margin-top:8px; color:var(--muted); font-size:.88rem; display:flex; align-items:center; gap:.5rem;
-  }
-  .hint-label{opacity:.9; font-weight:700}
-  .badges{display:flex; gap:.5rem; flex-wrap:wrap}
-  .badge{
-    padding:.25rem .55rem; border:1px solid rgba(255,255,255,.10);
-    background:#0e1014; border-radius:999px; font-weight:600;
-  }
-  .badge--active{
-    border-color: rgba(0,230,230,.45);
-    box-shadow: 0 0 0 2px rgba(0,230,230,.15) inset;
-  }
-
-  .radio-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  /* ---------- GRID DE RADIOS ---------- */
+  .radio-grid{display:grid;gap:8px;grid-template-columns:1fr}
   @media(min-width:620px){.radio-grid{grid-template-columns:1fr 1fr}}
 
   .radio-chip{
-    display:flex;align-items:center;gap:.75rem;
-    padding:12px 14px;border-radius:12px;
+    display:flex;align-items:center;gap:.65rem;
+    padding:10px 12px;border-radius:10px;
     background:#121317;
     border:1px solid rgba(255,255,255,.06);
-    transition:transform .05s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
-    cursor:pointer;min-height:48px;
+    transition:.12s ease;
+    cursor:pointer;min-height:40px;
+    font-size:.92rem;
   }
-  .radio-chip:hover{background:#14161b;border-color:rgba(255,255,255,.12)}
-  .radio-chip input{appearance:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--brand)}
-  .radio-chip input:checked{background:var(--brand);box-shadow:inset 0 0 0 3px #121317}
+  .radio-chip:hover{background:#15161b;border-color:rgba(255,255,255,.12)}
+  .radio-chip input{
+    appearance:none;width:16px;height:16px;border-radius:50%;
+    border:2px solid var(--brand);
+  }
+  .radio-chip input:checked{
+    background:var(--brand);
+    box-shadow:inset 0 0 0 3px #121317;
+  }
 
-  .selectors{display:grid;gap:12px;grid-template-columns:1fr;margin-top:6px}
+  /* ---------- SELECTORS ---------- */
+  .selectors{
+    display:grid;gap:10px;grid-template-columns:1fr;
+    margin-top:4px;
+  }
   @media(min-width:720px){.selectors{grid-template-columns:1fr 1fr}}
 
-  .search-box,.bpm-box{position:relative;display:flex;flex-direction:column}
-  .search-box input,.bpm-box input{
-    width:100%;height:46px;padding:10px 14px;
-    border-radius:12px;border:1px solid rgba(255,255,255,.08);
-    background:#0e1014;color:var(--text);
+  .sub{
+    font-size:.82rem;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:3px;
+    letter-spacing:.03em;
   }
-  .search-box input:focus,.bpm-box input:focus{box-shadow:var(--ring);border-color:rgba(0,230,230,.35)}
-  .bpm-box input.off{opacity:.45}
 
+  .search-box input,
+  .bpm-box input{
+    width:100%;
+    height:40px;
+    padding:8px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#0e1014;
+    color:var(--text);
+    font-size:.9rem;
+    transition:.12s;
+  }
+  .search-box input:focus,
+  .bpm-box input:focus{
+    box-shadow:var(--ring);
+    border-color:rgba(0,230,230,.35);
+  }
+
+  /* ---------- LISTAS DESPLEGABLES ---------- */
   .list{
     position:absolute;
-    top:calc(100% + 6px);
+    top:calc(100% + 5px);
     left:0;right:0;
-    max-height:190px;overflow:auto;
-    border-radius:12px;
+    max-height:170px;overflow:auto;
+    border-radius:10px;
     border:1px solid rgba(255,255,255,.06);
     background:#0e1014;
     z-index:9999;
-    box-shadow:0 14px 30px rgba(0,0,0,.45);
+    box-shadow:0 12px 26px rgba(0,0,0,.42);
   }
-  #generoList, #eventoList { z-index: 9999; }
-  #faseList { z-index: 10000; }
+  .item{
+    padding:10px 12px;cursor:pointer;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    font-size:.92rem;
+  }
+  .item:hover{background:#16181d}
 
-  .item{padding:12px 14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.05)}
-  .item:last-child{border-bottom:none}
-  .item:hover{background:#14161b}
-
-  .row-between{display:flex;align-items:center;justify-content:space-between;gap:10px}
-
+  /* ---------- GRUPO VERSION ---------- */
   .version-group{
-    align-self:flex-start;display:flex;flex-wrap:wrap;gap:12px;
-    padding:6px 10px;margin:6px 0 8px;
-    background:#121317;border:1px solid rgba(255,255,255,.08);
-    border-radius:10px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:10px;
+    padding:4px 8px;margin:4px 0 6px;
+    background:#121317;border:1px solid rgba(255,255,255,.07);
+    border-radius:8px;color:var(--muted);
+    font-size:.85rem;
   }
-  .version-group label{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer}
-  .version-group input[type="checkbox"]{width:16px;height:16px;transform:scale(1);accent-color:var(--brand)}
-  .version-group input[type="radio"]{transform:scale(1.1);accent-color:var(--brand)}
+  .version-group input[type="checkbox"],
+  .version-group input[type="radio"]{
+    width:15px;height:15px;accent-color:var(--brand);
+  }
 
+  /* ---------- RESULTADOS ---------- */
   .results-grid{
-    display:grid;gap:10px;grid-template-columns:1fr 1fr;
-    position:relative;z-index:0;
+    display:grid;gap:8px;grid-template-columns:1fr 1fr;
   }
   @media(max-width:720px){.results-grid{grid-template-columns:1fr}}
 
-  .result-card{display:flex;gap:8px;align-items:stretch;position:relative;z-index:0;}
-  .result-card .textarea-box{flex:1;display:flex;flex-direction:column}
-  .sub{font-size:.9rem;font-weight:700;color:var(--muted);margin-bottom:4px;letter-spacing:.05em}
-
   textarea.result{
-    width:100%;height:56px;padding:12px 14px;
+    width:100%;height:46px;
+    padding:10px 12px;
     background:#0d0f13;color:var(--brand-2);
     border:1px solid rgba(0,230,230,.35);
-    border-radius:12px;resize:none;font-size:.98rem;line-height:1.2;
+    border-radius:10px;resize:none;
+    font-size:.9rem;line-height:1.18;
   }
-  #albumText{color:#dfe6f3;border-color:rgba(255,255,255,.15)}
+  #albumText{
+    color:#dfe6f3;border-color:rgba(255,255,255,.14);
+  }
 
+  /* ---------- BOTONES ---------- */
   .btn{
-    min-width:110px;min-height:56px;padding:0 18px;
-    border-radius:12px;border:1px solid rgba(255,255,255,.09);
+    min-width:95px;min-height:46px;
+    padding:0 16px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.08);
     background:linear-gradient(180deg,#0f1116 0%,#10141b 100%);
-    color:var(--text);font-weight:700;letter-spacing:.2px;
-    cursor:pointer;box-shadow:var(--shadow);
-  }
-  .btn:active{transform:translateY(1px)}
-  .btn--brand{
-    background:linear-gradient(180deg,rgba(0,230,230,.2) 0%,rgba(0,230,230,.08) 100%);
-    border-color:rgba(0,230,230,.35);
-  }
-  .reset-row{display:flex;justify-content:center;margin-top:8px}
-  .btn--reset{min-width:160px;background:linear-gradient(180deg,#3a1414 0%,#1f0b0b 100%);border-color:#c22;color:#fff}
-
-  .btn-open-modal{
-    margin-top:6px;
-    align-self:flex-end;
-    padding:4px 10px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.03);
-    color:var(--muted);
-    font-size:.8rem;
+    color:var(--text);
+    font-size:.9rem;font-weight:700;
     cursor:pointer;
   }
-  .btn-open-modal:hover{
-    background:rgba(255,255,255,.08);
-    color:var(--text);
+  .btn--brand{
+    background:linear-gradient(180deg,rgba(0,230,230,.22) 0%,rgba(0,230,230,.10) 100%);
+    border-color:rgba(0,230,230,.35);
+  }
+  .btn-open-modal{
+    margin-top:5px;align-self:flex-end;
+    padding:3px 8px;border-radius:999px;
+    font-size:.72rem;color:var(--muted);
+    border:1px solid rgba(255,255,255,.15);
   }
 
+  /* ---------- MODALES REDUCIDOS ---------- */
   .modal-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:100000;
-    padding:16px;
+    position:fixed;inset:0;background:rgba(0,0,0,.7);
+    display:none;align-items:center;justify-content:center;
+    padding:16px;z-index:100000;
   }
   .modal-overlay.open{display:flex;}
 
   .modal-box{
-    width:min(700px, 100%);
-    background:#fdfdfd;
-    color:#111;
-    border-radius:12px;
-    box-shadow:0 10px 40px rgba(0,0,0,.8);
+    width:min(680px, 100%);
+    background:#fff;color:#111;
+    border-radius:10px;
     overflow:hidden;
-    max-height:90vh;
-    display:flex;
-    flex-direction:column;
+    max-height:88vh;
+    display:flex;flex-direction:column;
+    box-shadow:0 10px 32px rgba(0,0,0,.6);
   }
+
   .modal-header{
-    background:#222;
-    color:#fff;
-    padding:10px 14px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    font-weight:700;
-  }
-  .modal-title{
-    display:flex;
-    align-items:center;
-    gap:.4rem;
-    color:#ff5252;
-  }
-  .modal-close{
-    border:none;
-    background:transparent;
-    color:#fff;
-    font-size:1.3rem;
-    cursor:pointer;
-  }
-  .modal-body{
-    padding:12px 14px 14px;
-    background:#fafafa;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .modal-body input{
-    width:100%;
-    padding:8px 10px;
-    border-radius:8px;
-    border:1px solid #ddd;
+    background:#222;color:#fff;
+    padding:8px 12px;font-weight:700;
     font-size:.95rem;
-    outline:none;
+    display:flex;align-items:center;justify-content:space-between;
   }
-  .modal-body input:focus{
-    border-color:#ff5252;
-    box-shadow:0 0 0 2px rgba(255,82,82,.2);
+
+  .modal-body{
+    padding:10px 12px;gap:8px;
+    display:flex;flex-direction:column;flex:1;
   }
-  .modal-list{
-    border-radius:8px;
-    border:1px solid #e0e0e0;
-    background:#fff;
-    overflow:auto;
-    max-height:360px;
-  }
+
   .modal-item{
-    padding:8px 10px;
-    border-bottom:1px solid #f0f0f0;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-  }
-  .modal-item:last-child{border-bottom:none;}
-  .modal-item:hover{
-    background:#ffecec;
-  }
-  .modal-item span.emoji{
-    font-size:1.1rem;
-    width:1.5rem;
+    padding:8px 10px;font-size:.9rem;
   }
 
-  /* Chips de filtro del modal Evento */
-  .modal-chips{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:6px;
+  /* Biblioteca local */
+  .modal-tools{
+    display:flex;gap:6px;flex-wrap:wrap;
   }
-  .chip-filter{
-    border-radius:999px;
-    border:1px solid #ddd;
-    background:#fff;
-    padding:3px 10px;
-    font-size:.8rem;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
+  .btn-mini{
+    padding:5px 8px;font-size:.78rem;
+    border-radius:8px;border:1px solid #ddd;background:#fff;
   }
-  .chip-filter span.emoji{
-    font-size:1rem;
-  }
-  .chip-filter--active{
-    background:#ff5252;
-    border-color:#ff5252;
-    color:#fff;
-  }
-  .modal-empty{
-    padding:10px;
-    font-size:.9rem;
-    color:#666;
-  }
-
-  /* Ajuste visual para los ítems del modal de Ejemplos */
-  .modal-item.mod-ejemplo{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .mod-ejemplo-titulo{
-    color:#007bff;
-    font-size:.9rem;
-    font-weight:600;
-    margin:2px 0;
-  }
-  .mod-ejemplo-album{
-    color:#555;
-    font-size:.83rem;
-    margin:1px 0 3px;
-  }
-  .mod-ejemplo-desc{
-    color:#444;
-    font-size:.8rem;
-  }
-  
-  /* Modal Biblioteca Local (usa tu mismo estilo de modales) */
-#modalLocalOverlay .modal-title { color:#00e6e6; }
-.modal-tools{
-  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
-}
-.modal-chip{
-  border-radius:999px; border:1px solid #ddd; background:#fff; padding:3px 10px;
-  font-size:.8rem; cursor:default; color:#444;
-}
-.local-list-item{
-  display:flex; flex-direction:column; gap:2px; padding:8px 10px;
-  border-bottom:1px solid #f0f0f0; cursor:pointer;
-}
-.local-list-item:hover{ background:#ecfbff; }
-.local-path{ font-size:.78rem; color:#666; }
-.local-name{ font-weight:600; color:#0b2b3a; }
-.local-empty{ padding:10px; font-size:.9rem; color:#666; }
-.btn-mini{
-  padding:6px 10px; border-radius:8px; border:1px solid #ddd; background:#fff; cursor:pointer;
-}
-.btn-mini.brand{ border-color:#00e6e6; box-shadow:0 0 0 2px rgba(0,230,230,.15) inset; }
 
 </style>
 </head>
@@ -350,20 +229,24 @@
 
 <div class="wrap">
 
+  <!-- ===================== ESTADO ===================== -->
   <div class="title">🧾 Estado del Tema</div>
   <section class="card">
     <div id="estadoGroup" class="radio-grid"></div>
   </section>
 
+  <!-- ===================== POPULARIDAD ===================== -->
   <div class="title">📊 Popularidad</div>
   <section class="card">
     <div id="popularidadGroup" class="radio-grid"></div>
   </section>
 
+  <!-- ===================== GÉNERO · EVENTO · FASE · BPM ===================== -->
   <div class="title">🎵 Género · 🏷️ Evento · 🎛️ Fase · ⏱️ BPM</div>
   <section class="card">
     <div class="selectors">
-      <!-- GÉNERO -->
+
+      <!-- ======== GÉNERO ======== -->
       <div class="search-box">
         <div class="sub">Género</div>
 
@@ -374,11 +257,8 @@
           <label><input type="radio" name="version" value="Mixz"> Mixz</label>
         </div>
 
-        <input type="text" id="searchGenero" placeholder="Buscar género…" autocomplete="off" inputmode="text" />
-
-        <button type="button" id="btnOpenGeneroModal" class="btn-open-modal">
-          📋 Abrir lista grande
-        </button>
+        <input type="text" id="searchGenero" placeholder="Buscar género…" autocomplete="off" />
+        <button type="button" id="btnOpenGeneroModal" class="btn-open-modal">📋 Abrir lista grande</button>
 
         <div id="generoList" class="list"></div>
 
@@ -388,44 +268,46 @@
         </div>
       </div>
 
-      <!-- EVENTO -->
+      <!-- ======== EVENTO ======== -->
       <div class="search-box">
         <div class="sub">Evento</div>
-        <input type="text" id="searchEvento" placeholder="Buscar evento…" autocomplete="off" inputmode="text" />
 
-        <button type="button" id="btnOpenEventoModal" class="btn-open-modal">
-          📋 Abrir lista grande
-        </button>
+        <input type="text" id="searchEvento" placeholder="Buscar evento…" autocomplete="off" />
+        <button type="button" id="btnOpenEventoModal" class="btn-open-modal">📋 Abrir lista grande</button>
 
         <div id="eventoList" class="list"></div>
       </div>
 
-      <!-- FASE -->
+      <!-- ======== FASE ======== -->
       <div class="search-box">
         <div class="sub">Fase del set</div>
-        <input type="text" id="searchFase" placeholder="Warm-up, Build-Up, Clímax…" autocomplete="off" inputmode="text" />
+
+        <input type="text" id="searchFase" placeholder="Warm-up, Build-Up, Clímax…" autocomplete="off" />
         <div id="faseList" class="list"></div>
       </div>
 
-      <!-- BPM -->
+      <!-- ======== BPM ======== -->
       <div class="bpm-box">
         <div class="sub">
           BPM
           <label style="margin-left:8px; display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
-            <input type="checkbox" id="chkUsarBpm" checked style="accent-color: var(--brand); transform:scale(1.2);" />
+            <input type="checkbox" id="chkUsarBpm" checked style="accent-color: var(--brand); transform:scale(1.15);" />
             Usar
           </label>
         </div>
+
         <input type="number" id="bpm" placeholder="Ej. 95" min="50" max="220" step="1" inputmode="numeric" />
       </div>
+
     </div>
   </section>
 
-  <!-- RESULTADOS -->
+  <!-- ===================== RESULTADOS ===================== -->
   <div class="title">📌 Resultados</div>
   <section class="card">
     <div class="results-grid">
 
+      <!-- ARTISTA -->
       <div class="result-card">
         <div class="textarea-box">
           <div class="sub">🎤 Artista del Álbum</div>
@@ -434,6 +316,7 @@
         <button id="btnCopyMain" class="btn btn--brand">Copiar</button>
       </div>
 
+      <!-- ÁLBUM -->
       <div class="result-card">
         <div class="textarea-box">
           <div class="sub">💿 Álbum</div>
@@ -442,6 +325,7 @@
         <button id="btnCopyAlbum" class="btn">Copiar</button>
       </div>
 
+      <!-- MIXZ EXTRA -->
       <div class="result-card" id="mixzCard" style="display:none;">
         <div style="flex:1;display:flex;flex-direction:column">
           <div class="sub">🎤 Artista: Bailable</div>
@@ -452,14 +336,18 @@
 
     </div>
 
-    <div class="reset-row">
-      <button id="btnReset" class="btn btn--reset">🔄 Restablecer</button>
+    <!-- RESET -->
+    <div class="reset-row" style="margin-top:8px; display:flex; justify-content:center;">
+      <button id="btnReset" class="btn btn--reset"
+        style="min-width:150px; background:linear-gradient(180deg,#461616 0%,#2a0d0d 100%); border-color:#d22;">
+        🔄 Restablecer
+      </button>
     </div>
-  </section>
 
+  </section>
 </div>
 
-<!-- MODAL GÉNERO -->
+<!-- ===================== MODAL GÉNERO ===================== -->
 <div id="modalGeneroOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
@@ -473,425 +361,386 @@
   </div>
 </div>
 
-<!-- MODAL EVENTO (mejorado) -->
+<!-- ===================== MODAL EVENTO ===================== -->
 <div id="modalEventoOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title">🏷️ Modal de Evento</div>
       <button type="button" id="btnCloseEventoModal" class="modal-close">&times;</button>
     </div>
+
     <div class="modal-body">
       <input type="text" id="modalSearchEvento" placeholder="Buscar evento…" autocomplete="off" />
-
       <div id="modalEventoChips" class="modal-chips"></div>
-
       <div id="modalEventoList" class="modal-list"></div>
     </div>
   </div>
 </div>
 
-<!-- MODAL EJEMPLOS DE FORMATO -->
+<!-- ===================== MODAL EJEMPLOS FORMATO ===================== -->
 <div id="modalEjemploOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title">📘 Ejemplos de Formato</div>
       <button type="button" id="btnCloseEjemploModal" class="modal-close">&times;</button>
     </div>
+
     <div class="modal-body">
-      <input type="text" id="modalSearchEjemplo" placeholder="Buscar por género, título o palabra clave…" autocomplete="off" />
+      <input type="text" id="modalSearchEjemplo" placeholder="Buscar…" autocomplete="off" />
       <div id="modalEjemploList" class="modal-list"></div>
     </div>
   </div>
 </div>
 
-<!-- Botones de biblioteca local (ponlos donde te guste, por ejemplo bajo “Resultados”) -->
-<div class="wrap" style="margin-top:-10px;">
-  <section class="card" style="padding:10px 14px;">
-    <div class="row-between">
-      <div class="sub">🎼 Biblioteca local (índice en tu navegador)</div>
+<!-- ===================== BIBLIOTECA LOCAL ===================== -->
+<div class="wrap" style="margin-top:-6px;">
+  <section class="card" style="padding:8px 12px;">
+    <div class="row-between" style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="sub" style="font-size:.85rem;">🎼 Biblioteca local</div>
+
       <div class="modal-tools">
-        <button id="btnPickFolder" class="btn-mini brand">📁 Cargar/Actualizar carpeta</button>
-        <button id="btnOpenLocalModal" class="btn-mini">🔎 Buscar en biblioteca</button>
-        <button id="btnClearLocal" class="btn-mini">🗑️ Borrar caché</button>
+        <button id="btnPickFolder" class="btn-mini brand"
+          style="border-color:#00e6e6; box-shadow:0 0 0 2px rgba(0,230,230,.15) inset;">
+          📁 Cargar
+        </button>
+        <button id="btnOpenLocalModal" class="btn-mini">🔎 Buscar</button>
+        <button id="btnClearLocal" class="btn-mini">🗑️ Borrar</button>
       </div>
     </div>
   </section>
 </div>
 
-<!-- Fallback oculto para navegadores sin showDirectoryPicker -->
+<!-- Fallback -->
 <input id="inputFolderFallback" type="file" webkitdirectory multiple style="display:none" />
 
-<!-- MODAL: Biblioteca Local -->
+<!-- Modal Biblioteca -->
 <div id="modalLocalOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title">🎼 Biblioteca local</div>
       <button type="button" id="btnCloseLocalModal" class="modal-close">&times;</button>
     </div>
+
     <div class="modal-body">
       <div class="modal-tools" style="justify-content:space-between;">
-        <input type="text" id="searchLocal" placeholder="Buscar por nombre o ruta…" autocomplete="off" />
+        <input type="text" id="searchLocal" placeholder="Buscar en biblioteca…" autocomplete="off" />
         <span class="modal-chip" id="localMetaChip">Sin índice cargado</span>
       </div>
+
       <div id="modalLocalList" class="modal-list"></div>
     </div>
   </div>
 </div>
 
-
+<!-- Base de datos -->
 <script src="bdMusicData.js"></script>
 <script src="bdMusicLite.js"></script>
+
 <script>
-  // Copiar principal
-  document.getElementById('btnCopyMain').addEventListener('click', async () => {
-    const txt = document.getElementById('resultado').value.trim();
-    try{ await navigator.clipboard.writeText(txt); flashBtn('btnCopyMain'); }
-    catch(e){ fallbackCopy('resultado'); flashBtn('btnCopyMain'); }
-  });
+/* ===========================
+   COPIAR RESULTADOS
+   =========================== */
+function fallbackCopy(id){
+  const el = document.getElementById(id);
+  el.select();
+  document.execCommand('copy');
+}
+function flashBtn(id){
+  const btn = document.getElementById(id);
+  const old = btn.textContent;
+  btn.textContent = '¡Copiado!';
+  setTimeout(()=>btn.textContent = old, 1200);
+}
 
-  // Copiar álbum
-  document.getElementById('btnCopyAlbum').addEventListener('click', async () => {
-    const txt = document.getElementById('albumText').value.trim();
-    try{ await navigator.clipboard.writeText(txt); flashBtn('btnCopyAlbum'); }
-    catch(e){ fallbackCopy('albumText'); flashBtn('btnCopyAlbum'); }
-  });
+document.getElementById('btnCopyMain').addEventListener('click', async () => {
+  const txt = document.getElementById('resultado').value.trim();
+  try{ await navigator.clipboard.writeText(txt); }
+  catch(e){ fallbackCopy('resultado'); }
+  flashBtn('btnCopyMain');
+});
 
-  // Copiar bailable
-  document.getElementById('btnCopyBailable').addEventListener('click', async () => {
-    const txt = document.getElementById('bailableText').value.trim();
-    try{ await navigator.clipboard.writeText(txt); flashBtn('btnCopyBailable'); }
-    catch(e){ fallbackCopy('bailableText'); flashBtn('btnCopyBailable'); }
-  });
+document.getElementById('btnCopyAlbum').addEventListener('click', async () => {
+  const txt = document.getElementById('albumText').value.trim();
+  try{ await navigator.clipboard.writeText(txt); }
+  catch(e){ fallbackCopy('albumText'); }
+  flashBtn('btnCopyAlbum');
+});
 
-  // Restablecer básico (el resto se completa en bdMusicLite)
-  document.getElementById('btnReset').addEventListener('click', () => {
-    localStorage.removeItem("estadoTag");
-    localStorage.removeItem("popularidadTag");
-    localStorage.removeItem("generoTag");
-    localStorage.removeItem("eventoTag");
-    localStorage.removeItem("faseTag");
-    localStorage.removeItem("bpmTag");
-    localStorage.removeItem("usarBpm");
-    localStorage.removeItem("versionTag");
-    localStorage.removeItem("grupoAlVivo");
-    location.reload();
-  });
+document.getElementById('btnCopyBailable').addEventListener('click', async () => {
+  const txt = document.getElementById('bailableText').value.trim();
+  try{ await navigator.clipboard.writeText(txt); }
+  catch(e){ fallbackCopy('bailableText'); }
+  flashBtn('btnCopyBailable');
+});
 
-  function fallbackCopy(id){
-    const el = document.getElementById(id);
-    el.select();
-    document.execCommand('copy');
+
+/* ===========================
+   RESET COMPLETO
+   =========================== */
+document.getElementById('btnReset').addEventListener('click', () => {
+  [
+    "estadoTag","popularidadTag","generoTag","eventoTag","faseTag",
+    "bpmTag","usarBpm","versionTag","grupoAlVivo"
+  ].forEach(k => localStorage.removeItem(k));
+  location.reload();
+});
+
+
+/* =============================================================
+   MARCADO VISUAL DE RADIO-CHIPS (Estado / Popularidad)
+   ============================================================= */
+document.addEventListener('change', (ev)=>{
+  if(ev.target.matches('input[name="estado"], input[name="popularidad"]')){
+    const group = ev.target.name === 'estado' ? '#estadoGroup' : '#popularidadGroup';
+    document.querySelectorAll(group + ' .radio-chip')
+      .forEach(l => l.classList.remove('is-checked'));
+    ev.target.closest('.radio-chip')?.classList.add('is-checked');
   }
-  function flashBtn(id){
-    const btn = document.getElementById(id);
-    const old = btn.textContent;
-    btn.textContent = '¡Copiado!';
-    setTimeout(()=>btn.textContent = old, 1200);
-  }
+});
 
-  // Marcado visual de radios
-  document.addEventListener('change', (ev)=>{
-    if(ev.target.matches('input[name="estado"], input[name="popularidad"]')){
-      const group = ev.target.name === 'estado' ? '#estadoGroup' : '#popularidadGroup';
-      document.querySelectorAll(group + ' .radio-chip').forEach(l => l.classList.remove('is-checked'));
-      ev.target.closest('.radio-chip')?.classList.add('is-checked');
-    }
-  });
 
-  /* ===== MODAL GÉNERO ===== */
-  const overlayGenero       = document.getElementById('modalGeneroOverlay');
-  const btnOpenGenero       = document.getElementById('btnOpenGeneroModal');
-  const btnCloseGenero      = document.getElementById('btnCloseGeneroModal');
-  const modalSearchGenero   = document.getElementById('modalSearchGenero');
-  const modalGeneroList     = document.getElementById('modalGeneroList');
-  const generoInputMain     = document.getElementById('searchGenero');
+/* =============================================================
+   MODAL GÉNERO
+   ============================================================= */
 
-  function abrirModalGenero(){
-    if(!overlayGenero) return;
-    overlayGenero.classList.add('open');
-    modalSearchGenero.value = '';
-    renderModalGeneros('');
-    setTimeout(()=>modalSearchGenero.focus(), 50);
-  }
-  function cerrarModalGenero(){
-    overlayGenero.classList.remove('open');
-  }
-  function renderModalGeneros(filtro){
-    if(!Array.isArray(window.TB_Genero)) return;
-    const f = (filtro || '').toLowerCase();
-    modalGeneroList.innerHTML = '';
-    window.TB_Genero
-      .filter(g => g.Estado === 'ACT' && g.Nombre.toLowerCase().includes(f))
-      .forEach(g => {
-        const div = document.createElement('div');
-        div.className = 'modal-item';
+const overlayGenero       = document.getElementById('modalGeneroOverlay');
+const btnOpenGenero       = document.getElementById('btnOpenGeneroModal');
+const btnCloseGenero      = document.getElementById('btnCloseGeneroModal');
+const modalSearchGenero   = document.getElementById('modalSearchGenero');
+const modalGeneroList     = document.getElementById('modalGeneroList');
+const generoInputMain     = document.getElementById('searchGenero');
 
-        let emoji = '🎵';
-        let texto = g.Nombre;
-        try{
-          const m = g.Nombre.match(/^(\p{Emoji_Presentation}|\p{Extended_Pictographic})?\s*(.*)$/u);
-          if(m){
-            if(m[1]) emoji = m[1];
-            if(m[2]) texto = m[2];
-          }
-        }catch{
-          emoji = '🎵';
-          texto = g.Nombre;
-        }
+function abrirModalGenero(){
+  overlayGenero.classList.add('open');
+  modalSearchGenero.value = '';
+  renderModalGeneros('');
+  setTimeout(()=>modalSearchGenero.focus(), 50);
+}
+function cerrarModalGenero(){
+  overlayGenero.classList.remove('open');
+}
+function renderModalGeneros(filtro){
+  const f = (filtro||'').toLowerCase();
+  modalGeneroList.innerHTML = '';
 
-        div.innerHTML = '<span class="emoji">' + emoji + '</span><span>' + texto + '</span>';
-        div.addEventListener('click', ()=>{
-          if(generoInputMain){
-            generoInputMain.value = g.Nombre;
-            const ev = new KeyboardEvent('keydown', {key:'Enter'});
-            generoInputMain.dispatchEvent(ev);
-          }
-          cerrarModalGenero();
-        });
-        modalGeneroList.appendChild(div);
-      });
-  }
-  btnOpenGenero?.addEventListener('click', abrirModalGenero);
-  btnCloseGenero?.addEventListener('click', cerrarModalGenero);
-  overlayGenero?.addEventListener('click', e=>{
-    if(e.target === overlayGenero) cerrarModalGenero();
-  });
-  modalSearchGenero?.addEventListener('input', e=>renderModalGeneros(e.target.value));
-
-  /* ===== MODAL EVENTO (MEJORADO) ===== */
-  const overlayEvento       = document.getElementById('modalEventoOverlay');
-  const btnOpenEvento       = document.getElementById('btnOpenEventoModal');
-  const btnCloseEvento      = document.getElementById('btnCloseEventoModal');
-  const modalSearchEvento   = document.getElementById('modalSearchEvento');
-  const modalEventoList     = document.getElementById('modalEventoList');
-  const modalEventoChips    = document.getElementById('modalEventoChips');
-  const eventoInputMain     = document.getElementById('searchEvento');
-
-  const _rawEventos = Array.isArray(window.TB_TipoEvento)
-    ? window.TB_TipoEvento
-    : (Array.isArray(window.TB_Evento) ? window.TB_Evento : []);
-
-  const EV_DATA = _rawEventos.map(e => {
-    let emoji = '🏷️';
-    let texto = e.Nombre;
-    try {
-      const m = e.Nombre.match(/^(\p{Emoji_Presentation}|\p{Extended_Pictographic})?\s*(.*)$/u);
-      if (m) {
-        if (m[1]) emoji = m[1];
-        if (m[2]) texto = m[2];
-      }
-    } catch {
-      emoji = '🏷️';
-      texto = e.Nombre;
-    }
-    return { ...e, emoji, texto };
-  });
-
-  const EV_EMOJIS = Array.from(new Set(EV_DATA.map(e => e.emoji)));
-  let filtroEmojiEvento = 'ALL';
-
-  function construirChipsEvento(){
-    if (!modalEventoChips) return;
-    modalEventoChips.innerHTML = '';
-
-    const chipAll = document.createElement('button');
-    chipAll.className = 'chip-filter chip-filter--active';
-    chipAll.dataset.emoji = 'ALL';
-    chipAll.innerHTML = '<span class="emoji">⭐</span><span>Todos</span>';
-    chipAll.addEventListener('click', onChipEventoClick);
-    modalEventoChips.appendChild(chipAll);
-
-    EV_EMOJIS.forEach(em => {
-      const chip = document.createElement('button');
-      chip.className = 'chip-filter';
-      chip.dataset.emoji = em;
-      chip.innerHTML = `<span class="emoji">${em}</span><span>${em}</span>`;
-      chip.addEventListener('click', onChipEventoClick);
-      modalEventoChips.appendChild(chip);
-    });
-  }
-
-  function onChipEventoClick(ev){
-    const emojiSel = ev.currentTarget.dataset.emoji || 'ALL';
-    filtroEmojiEvento = emojiSel;
-
-    document.querySelectorAll('#modalEventoChips .chip-filter')
-      .forEach(ch => ch.classList.toggle('chip-filter--active', ch.dataset.emoji === emojiSel));
-
-    renderModalEventos(modalSearchEvento.value);
-  }
-
-  function abrirModalEvento(){
-    if (!overlayEvento) return;
-    overlayEvento.classList.add('open');
-    modalSearchEvento.value = '';
-    filtroEmojiEvento = 'ALL';
-    construirChipsEvento();
-    renderModalEventos('');
-    setTimeout(() => modalSearchEvento.focus(), 50);
-  }
-
-  function cerrarModalEvento(){
-    overlayEvento.classList.remove('open');
-  }
-
-  function renderModalEventos(filtro){
-    const f = (filtro || '').toLowerCase();
-    modalEventoList.innerHTML = '';
-
-    const filtrados = EV_DATA
-      .filter(e => !e.Estado || e.Estado === 'ACT')
-      .filter(e => filtroEmojiEvento === 'ALL' || e.emoji === filtroEmojiEvento)
-      .filter(e => e.Nombre.toLowerCase().includes(f));
-
-    if (!filtrados.length){
-      const divEmpty = document.createElement('div');
-      divEmpty.className = 'modal-empty';
-      divEmpty.textContent = 'No se encontraron eventos con esos filtros.';
-      modalEventoList.appendChild(divEmpty);
-      return;
-    }
-
-    filtrados.forEach(e => {
+  window.TB_Genero
+    .filter(g => g.Estado === 'ACT' && g.Nombre.toLowerCase().includes(f))
+    .forEach(g => {
       const div = document.createElement('div');
       div.className = 'modal-item';
 
-      div.innerHTML = `
-        <span class="emoji">${e.emoji}</span>
-        <span>${e.texto}</span>
-      `;
+      let emoji = '🎵';
+      let texto = g.Nombre;
 
-      div.addEventListener('click', () => {
-        if (eventoInputMain) {
-          eventoInputMain.value = e.Nombre;
-          const ev = new KeyboardEvent('keydown', { key: 'Enter' });
-          eventoInputMain.dispatchEvent(ev);
-        }
-        cerrarModalEvento();
+      try{
+        const m = g.Nombre.match(/^(\p{Emoji_Presentation}|\p{Extended_Pictographic})?\s*(.*)$/u);
+        if(m){ if(m[1]) emoji = m[1]; if(m[2]) texto = m[2]; }
+      }catch{}
+
+      div.innerHTML = `<span class="emoji">${emoji}</span> <span>${texto}</span>`;
+
+      div.addEventListener('click', ()=>{
+        generoInputMain.value = g.Nombre;
+        generoInputMain.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}));
+        cerrarModalGenero();
       });
 
-      modalEventoList.appendChild(div);
+      modalGeneroList.appendChild(div);
     });
-  }
+}
 
-  btnOpenEvento?.addEventListener('click', abrirModalEvento);
-  btnCloseEvento?.addEventListener('click', cerrarModalEvento);
-  overlayEvento?.addEventListener('click', e => {
-    if (e.target === overlayEvento) cerrarModalEvento();
-  });
-  modalSearchEvento?.addEventListener('input', e => renderModalEventos(e.target.value));
+btnOpenGenero.addEventListener('click', abrirModalGenero);
+btnCloseGenero.addEventListener('click', cerrarModalGenero);
+overlayGenero.addEventListener('click', e=>{ if(e.target===overlayGenero) cerrarModalGenero(); });
+modalSearchGenero.addEventListener('input', e=>renderModalGeneros(e.target.value));
 
-  /* ===== MODAL EJEMPLOS DE FORMATO ===== */
-  const overlayEjemplo      = document.getElementById('modalEjemploOverlay');
-  const btnCloseEjemplo    = document.getElementById('btnCloseEjemploModal');
-  const modalSearchEjemplo = document.getElementById('modalSearchEjemplo');
-  const modalEjemploList   = document.getElementById('modalEjemploList');
-  const resultadoTxt       = document.getElementById('resultado');
-  const albumTxt           = document.getElementById('albumText');
 
-  function abrirModalEjemplo(){
-    if (!overlayEjemplo) return;
-    overlayEjemplo.classList.add('open');
-    modalSearchEjemplo.value = '';
-    renderModalEjemplos('');
-    setTimeout(()=>modalSearchEjemplo.focus(), 50);
-  }
-  function cerrarModalEjemplo(){
-    overlayEjemplo.classList.remove('open');
-  }
+/* =============================================================
+   MODAL EVENTO (con filtros por emoji)
+   ============================================================= */
 
-  function renderModalEjemplos(filtro){
-    const data = Array.isArray(window.TB_EjemploFormato) ? window.TB_EjemploFormato : [];
-    const f = (filtro || '').toLowerCase();
-    modalEjemploList.innerHTML = '';
+const overlayEvento       = document.getElementById('modalEventoOverlay');
+const btnOpenEvento       = document.getElementById('btnOpenEventoModal');
+const btnCloseEvento      = document.getElementById('btnCloseEventoModal');
+const modalSearchEvento   = document.getElementById('modalSearchEvento');
+const modalEventoList     = document.getElementById('modalEventoList');
+const modalEventoChips    = document.getElementById('modalEventoChips');
+const eventoInputMain     = document.getElementById('searchEvento');
 
-    const filtrados = data.filter(e =>
-      e.Genero.toLowerCase().includes(f) ||
-      e.TituloEjemplo.toLowerCase().includes(f) ||
-      (e.AlbumEjemplo || '').toLowerCase().includes(f) ||
-      (e.Descripcion || '').toLowerCase().includes(f)
-    );
+const _rawEventos = Array.isArray(window.TB_TipoEvento)
+  ? window.TB_TipoEvento
+  : (Array.isArray(window.TB_Evento) ? window.TB_Evento : []);
 
-    if (!filtrados.length){
-      const divEmpty = document.createElement('div');
-      divEmpty.className = 'modal-empty';
-      divEmpty.textContent = 'No se encontraron ejemplos con ese filtro.';
-      modalEjemploList.appendChild(divEmpty);
-      return;
-    }
-
-    filtrados.forEach(e => {
-      const it = document.createElement('div');
-      it.className = 'modal-item mod-ejemplo';
-      it.innerHTML = `
-        <div><strong>${e.Genero}</strong></div>
-        <div class="mod-ejemplo-titulo">🎵 ${e.TituloEjemplo}</div>
-        <div class="mod-ejemplo-album">💽 ${e.AlbumEjemplo || ''}</div>
-        <div class="mod-ejemplo-desc">${e.Descripcion || ''}</div>
-      `;
-      it.addEventListener('click', () => {
-        if (resultadoTxt) resultadoTxt.value = e.TituloEjemplo;
-        if (albumTxt) albumTxt.value = e.AlbumEjemplo || '';
-        cerrarModalEjemplo();
-      });
-      modalEjemploList.appendChild(it);
-    });
-  }
-
-  btnCloseEjemplo?.addEventListener('click', cerrarModalEjemplo);
-  overlayEjemplo?.addEventListener('click', e=>{
-    if (e.target === overlayEjemplo) cerrarModalEjemplo();
-  });
-  modalSearchEjemplo?.addEventListener('input', e=>renderModalEjemplos(e.target.value));
-
-  // Crear botón "Abrir lista grande" al lado del input de ejemplos (lo inserta bdMusicLite)
-  document.addEventListener('DOMContentLoaded', () => {
-    const ejemploInputMini = document.getElementById('searchEjemplo');
-    if (ejemploInputMini && !document.getElementById('btnOpenEjemploModal')) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.id   = 'btnOpenEjemploModal';
-      btn.className = 'btn-open-modal';
-      btn.textContent = '📋 Abrir lista grande';
-      ejemploInputMini.insertAdjacentElement('afterend', btn);
-      btn.addEventListener('click', abrirModalEjemplo);
-    }
-  });
-
-  // ESC cierra el modal que esté abierto
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape'){
-      if(overlayGenero?.classList.contains('open')) cerrarModalGenero();
-      if(overlayEvento?.classList.contains('open')) cerrarModalEvento();
-      if(overlayEjemplo?.classList.contains('open')) cerrarModalEjemplo();
-    }
-  });
-  
-  // === Hacer que Evento, Fase y Ejemplos seleccionen todo el texto al enfocar ===
-document.addEventListener('DOMContentLoaded', () => {
-  const ids = ['searchEvento', 'searchFase', 'searchEjemplo'];
-
-  ids.forEach(id => {
-    const input = document.getElementById(id);
-    if (!input) return;
-
-    // Al recibir foco: seleccionar todo
-    input.addEventListener('focus', function () {
-      this.select();
-    });
-
-    // Truco: evitar que el mouseup quite la selección en el primer click
-    input.addEventListener('mouseup', function (e) {
-      // Solo la primera vez tras el foco
-      e.preventDefault();
-    });
-  });
+const EV_DATA = _rawEventos.map(e => {
+  let emoji='🏷️'; let texto=e.Nombre;
+  try{
+    const m=e.Nombre.match(/^(\p{Emoji_Presentation}|\p{Extended_Pictographic})?\s*(.*)$/u);
+    if(m){ if(m[1]) emoji=m[1]; if(m[2]) texto=m[2]; }
+  }catch{}
+  return {...e, emoji, texto};
 });
 
-// =================== Biblioteca Local: índice + búsqueda ===================
+const EV_EMOJIS = Array.from(new Set(EV_DATA.map(e=>e.emoji)));
+let filtroEmojiEvento = 'ALL';
+
+function construirChipsEvento(){
+  modalEventoChips.innerHTML = '';
+
+  const chipAll = document.createElement('button');
+  chipAll.className='chip-filter chip-filter--active';
+  chipAll.dataset.emoji='ALL';
+  chipAll.innerHTML=`<span class="emoji">⭐</span><span>Todos</span>`;
+  chipAll.addEventListener('click', onChipEventoClick);
+  modalEventoChips.appendChild(chipAll);
+
+  EV_EMOJIS.forEach(em=>{
+    const chip = document.createElement('button');
+    chip.className='chip-filter';
+    chip.dataset.emoji=em;
+    chip.innerHTML=`<span class="emoji">${em}</span><span>${em}</span>`;
+    chip.addEventListener('click', onChipEventoClick);
+    modalEventoChips.appendChild(chip);
+  });
+}
+
+function onChipEventoClick(ev){
+  filtroEmojiEvento = ev.currentTarget.dataset.emoji;
+  document.querySelectorAll('#modalEventoChips .chip-filter')
+    .forEach(c => c.classList.toggle('chip-filter--active', c.dataset.emoji===filtroEmojiEvento));
+  renderModalEventos(modalSearchEvento.value);
+}
+
+function abrirModalEvento(){
+  overlayEvento.classList.add('open');
+  modalSearchEvento.value='';
+  filtroEmojiEvento='ALL';
+  construirChipsEvento();
+  renderModalEventos('');
+  setTimeout(()=>modalSearchEvento.focus(),50);
+}
+function cerrarModalEvento(){
+  overlayEvento.classList.remove('open');
+}
+
+function renderModalEventos(filtro){
+  const f=(filtro||'').toLowerCase();
+  modalEventoList.innerHTML='';
+
+  const filtrados = EV_DATA
+    .filter(e => !e.Estado || e.Estado==='ACT')
+    .filter(e => filtroEmojiEvento==='ALL' || e.emoji===filtroEmojiEvento)
+    .filter(e => e.Nombre.toLowerCase().includes(f));
+
+  if(!filtrados.length){
+    const divEmpty=document.createElement('div');
+    divEmpty.className='modal-empty';
+    divEmpty.textContent='No se encontraron eventos.';
+    modalEventoList.appendChild(divEmpty);
+    return;
+  }
+
+  filtrados.forEach(e=>{
+    const div=document.createElement('div');
+    div.className='modal-item';
+    div.innerHTML=`<span class="emoji">${e.emoji}</span> <span>${e.texto}</span>`;
+    div.addEventListener('click', ()=>{
+      eventoInputMain.value=e.Nombre;
+      eventoInputMain.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}));
+      cerrarModalEvento();
+    });
+    modalEventoList.appendChild(div);
+  });
+}
+
+btnOpenEvento.addEventListener('click', abrirModalEvento);
+btnCloseEvento.addEventListener('click', cerrarModalEvento);
+overlayEvento.addEventListener('click', e=>{ if(e.target===overlayEvento) cerrarModalEvento(); });
+modalSearchEvento.addEventListener('input', e=>renderModalEventos(e.target.value));
+
+
+/* =============================================================
+   MODAL EJEMPLOS DE FORMATO
+   ============================================================= */
+
+const overlayEjemplo      = document.getElementById('modalEjemploOverlay');
+const btnCloseEjemplo    = document.getElementById('btnCloseEjemploModal');
+const modalSearchEjemplo = document.getElementById('modalSearchEjemplo');
+const modalEjemploList   = document.getElementById('modalEjemploList');
+const resultadoTxt       = document.getElementById('resultado');
+const albumTxt           = document.getElementById('albumText');
+
+function abrirModalEjemplo(){
+  overlayEjemplo.classList.add('open');
+  modalSearchEjemplo.value='';
+  renderModalEjemplos('');
+  setTimeout(()=>modalSearchEjemplo.focus(),50);
+}
+function cerrarModalEjemplo(){
+  overlayEjemplo.classList.remove('open');
+}
+
+function renderModalEjemplos(filtro){
+  const data=Array.isArray(window.TB_EjemploFormato)?window.TB_EjemploFormato:[];
+  const f=(filtro||'').toLowerCase();
+  modalEjemploList.innerHTML='';
+
+  const filtrados = data.filter(e =>
+    e.Genero.toLowerCase().includes(f) ||
+    e.TituloEjemplo.toLowerCase().includes(f) ||
+    (e.AlbumEjemplo||'').toLowerCase().includes(f) ||
+    (e.Descripcion||'').toLowerCase().includes(f)
+  );
+
+  if(!filtrados.length){
+    const divEmpty=document.createElement('div');
+    divEmpty.className='modal-empty';
+    divEmpty.textContent='No se encontraron ejemplos.';
+    modalEjemploList.appendChild(divEmpty);
+    return;
+  }
+
+  filtrados.forEach(e=>{
+    const it=document.createElement('div');
+    it.className='modal-item mod-ejemplo';
+    it.innerHTML=`
+      <div><strong>${e.Genero}</strong></div>
+      <div class="mod-ejemplo-titulo">🎵 ${e.TituloEjemplo}</div>
+      <div class="mod-ejemplo-album">💽 ${e.AlbumEjemplo||''}</div>
+      <div class="mod-ejemplo-desc">${e.Descripcion||''}</div>
+    `;
+    it.addEventListener('click',()=>{
+      resultadoTxt.value=e.TituloEjemplo;
+      albumTxt.value=e.AlbumEjemplo||'';
+      cerrarModalEjemplo();
+    });
+    modalEjemploList.appendChild(it);
+  });
+}
+
+overlayEjemplo.addEventListener('click', e=>{ if(e.target===overlayEjemplo) cerrarModalEjemplo(); });
+btnCloseEjemplo.addEventListener('click', cerrarModalEjemplo);
+modalSearchEjemplo.addEventListener('input', e=>renderModalEjemplos(e.target.value));
+
+
+/* =============================================================
+   INPUTS: seleccionar todo al tocar (Evento/Fase)
+   ============================================================= */
+['searchEvento','searchFase'].forEach(id=>{
+  const input=document.getElementById(id);
+  if(!input) return;
+
+  input.addEventListener('focus', function(){ this.select(); });
+  input.addEventListener('mouseup', function(e){ e.preventDefault(); });
+});
+
+
+/* =============================================================
+   MODAL BIBLIOTECA LOCAL
+   ============================================================= */
+
 (function(){
-  const KEY_INDEX = 'MUSICLIB_INDEX_V1';
-  const KEY_UPDATED = 'MUSICLIB_UPDATED_AT';
+  const KEY_INDEX='MUSICLIB_INDEX_V1';
+  const KEY_UPDATED='MUSICLIB_UPDATED_AT';
 
   const btnPick   = document.getElementById('btnPickFolder');
   const btnOpen   = document.getElementById('btnOpenLocalModal');
@@ -904,165 +753,166 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchEl  = document.getElementById('searchLocal');
   const metaChip  = document.getElementById('localMetaChip');
 
-  // Utils -------------------------------------------------------
-  const nowISO = ()=> new Date().toISOString();
-  const saveIndex = (rows)=>{
+  const nowISO = ()=>new Date().toISOString();
+  const saveIndex = rows=>{
     try{
       localStorage.setItem(KEY_INDEX, JSON.stringify(rows));
       localStorage.setItem(KEY_UPDATED, nowISO());
     }catch(e){
-      alert("No se pudo guardar el índice. Puede que sea muy grande para localStorage.\nSugerencia: limita la carpeta o usa subcarpetas.");
+      alert("Índice demasiado grande para localStorage.");
     }
     refreshMeta();
   };
   const loadIndex = ()=>{
     try{
-      const raw = localStorage.getItem(KEY_INDEX);
-      return raw ? JSON.parse(raw) : [];
-    }catch{ return []; }
+      const raw=localStorage.getItem(KEY_INDEX);
+      return raw?JSON.parse(raw):[];
+    }catch{return [];}
   };
   const refreshMeta = ()=>{
-    const rows = loadIndex();
-    const ts = localStorage.getItem(KEY_UPDATED);
+    const rows=loadIndex();
+    const ts=localStorage.getItem(KEY_UPDATED);
     metaChip.textContent = rows.length
-      ? `Indexados: ${rows.length} • ${formatDate(ts)}`
+      ? `Indexados: ${rows.length} • ${new Date(ts).toLocaleString()}`
       : 'Sin índice cargado';
   };
-  const formatDate = (iso)=>{
-    if(!iso) return '';
-    const d = new Date(iso);
-    return d.toLocaleString();
-  };
-  const stripExt = (name)=>{
-    const i = name.lastIndexOf('.');
-    return i > 0 ? name.slice(0, i) : name;
-  };
-  const norm = (s)=> (s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, ''); // quita acentos
 
-  // Render ------------------------------------------------------
+  /* Render */
   const renderList = (rows, filtro)=>{
-    const f = norm(filtro || '');
-    listEl.innerHTML = '';
+    const f=normalize(filtro);
+    listEl.innerHTML='';
     const data = f
-      ? rows.filter(r => (r.n.includes(f) || r.p.includes(f)))
+      ? rows.filter(r => r.n.includes(f) || r.p.includes(f))
       : rows;
 
     if(!data.length){
-      const empty = document.createElement('div');
-      empty.className = 'local-empty';
-      empty.textContent = 'No hay resultados. Carga una carpeta o prueba otro texto.';
+      const empty=document.createElement('div');
+      empty.className='local-empty';
+      empty.textContent='No hay resultados.';
       listEl.appendChild(empty);
       return;
     }
 
-    data.slice(0, 5000).forEach(r=>{
-      const div = document.createElement('div');
-      div.className = 'local-list-item';
-      div.innerHTML = `<div class="local-name">🎵 ${r.name}</div>
-                       <div class="local-path">${r.path}</div>`;
-      // Al hacer click puedes decidir qué hacer. Ejemplo: pegar en "resultado"
-      div.addEventListener('click', ()=>{
-        // Rellena “Artista del Álbum” con el nombre del archivo (sin extensión)
-        const out = document.getElementById('resultado');
-        if(out){ out.value = r.name; }
-        // O también podrías pegar al “Bailable” si estás en Mixz:
-        const bail = document.getElementById('bailableText');
-        if(bail && document.querySelector('input[name="version"][value="Mixz"]')?.checked){
-          bail.value = r.name;
+    data.slice(0,5000).forEach(r=>{
+      const div=document.createElement('div');
+      div.className='local-list-item';
+      div.innerHTML = `
+        <div class="local-name">🎵 ${r.name}</div>
+        <div class="local-path">${r.path}</div>
+      `;
+      div.addEventListener('click',()=>{
+        const out=document.getElementById('resultado');
+        if(out) out.value=r.name;
+
+        const mix = document.querySelector('input[name="version"][value="Mixz"]');
+        if(mix?.checked){
+          const b=document.getElementById('bailableText');
+          if(b) b.value=r.name;
         }
       });
       listEl.appendChild(div);
     });
   };
 
-  // Modal open/close -------------------------------------------
-  const openModal = ()=>{
+  /* Normalizar */
+  function normalize(s){
+    return (s||'').toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'');
+  }
+
+  /* Apertura/Cierre */
+  const openModal=()=>{
     overlay.classList.add('open');
-    searchEl.value = '';
+    searchEl.value='';
     renderList(loadIndex(), '');
-    setTimeout(()=> searchEl.focus(), 50);
+    setTimeout(()=>searchEl.focus(),50);
   };
-  const closeModal = ()=> overlay.classList.remove('open');
+  const closeModal=()=>overlay.classList.remove('open');
 
-  btnOpen?.addEventListener('click', openModal);
-  btnClose?.addEventListener('click', closeModal);
-  overlay?.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape' && overlay?.classList.contains('open')) closeModal();
-  });
-  searchEl?.addEventListener('input', e => renderList(loadIndex(), e.target.value));
+  btnOpen.addEventListener('click', openModal);
+  btnClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+  searchEl.addEventListener('input', e=>renderList(loadIndex(), e.target.value));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
 
-  // Carga de carpeta (FS Access API o fallback webkitdirectory) ----------------
-  btnPick?.addEventListener('click', async ()=>{
+  /* Indexar carpeta */
+  btnPick.addEventListener('click', async ()=>{
     if('showDirectoryPicker' in window){
       try{
-        const dirHandle = await window.showDirectoryPicker({ id: 'music-lib' });
-        const rows = [];
-        await traverseDirectory(dirHandle, '', rows);
+        const dirHandle = await window.showDirectoryPicker({id:'music-lib'});
+        const rows=[];
+        await walk(dirHandle, '', rows);
         indexAndSave(rows);
         alert(`Listo: ${rows.length} archivos indexados.`);
-      }catch(err){
-        if(err?.name !== 'AbortError') alert('No se pudo leer la carpeta.');
+      }catch(e){
+        if(e?.name!=='AbortError') alert('Error leyendo carpeta.');
       }
-    }else{
-      // Fallback
-      inputFB.click();
-    }
+    }else inputFB.click();
   });
 
-  inputFB?.addEventListener('change', ()=>{
-    const files = Array.from(inputFB.files || []);
-    const rows = files.map(f=>{
-      const rel = f.webkitRelativePath || f.name;
-      return { path: rel.replace(/\\/g,'/'), name: stripExt(f.name) };
-    }).filter(r => isAudio(r.path));
+  /* Fallback webkitdirectory */
+  inputFB.addEventListener('change', ()=>{
+    const files=Array.from(inputFB.files||[]);
+    const rows = files
+      .map(f=>({path:f.webkitRelativePath.replace(/\\/g,'/'), name:stripExt(f.name)}))
+      .filter(r=>isAudio(r.path));
     indexAndSave(rows);
-    alert(`Listo: ${rows.length} archivos indexados (fallback).`);
-    inputFB.value = '';
+    alert(`Listo: ${rows.length} archivos indexados.`);
+    inputFB.value='';
   });
 
+  /* Helpers */
+  function stripExt(name){
+    const i=name.lastIndexOf('.');
+    return i>0?name.slice(0,i):name;
+  }
   function isAudio(p){
     return /\.(mp3|wav|m4a|flac|ogg|aac)$/i.test(p);
   }
-
-  async function traverseDirectory(dirHandle, basePath, out){
-    for await (const [name, handle] of dirHandle.entries()){
-      if(handle.kind === 'file'){
+  async function walk(dirHandle, base, out){
+    for await(const [name,handle] of dirHandle.entries()){
+      if(handle.kind==='file'){
         if(isAudio(name)){
-          out.push({ path: (basePath ? basePath + '/' : '') + name, name: stripExt(name) });
+          out.push({path:(base?base+'/':'')+name, name:stripExt(name)});
         }
-      }else if(handle.kind === 'directory'){
-        await traverseDirectory(handle, (basePath ? basePath + '/' : '') + name, out);
+      }else if(handle.kind==='directory'){
+        await walk(handle, (base?base+'/':'')+name, out);
       }
     }
   }
 
   function indexAndSave(rows){
-    // Índice buscable: guardamos name, path y versiones normalizadas
-    const indexed = rows.map(r => ({
-      name: r.name,
-      path: r.path,
-      n: norm(r.name),
-      p: norm(r.path)
+    const indexed = rows.map(r=>({
+      name:r.name,
+      path:r.path,
+      n:normalize(r.name),
+      p:normalize(r.path)
     }));
     saveIndex(indexed);
-    refreshMeta();
   }
 
-  btnClear?.addEventListener('click', ()=>{
+  btnClear.addEventListener('click', ()=>{
     localStorage.removeItem(KEY_INDEX);
     localStorage.removeItem(KEY_UPDATED);
     refreshMeta();
-    alert('Caché de biblioteca borrada.');
+    alert('Caché borrada.');
   });
 
-  // Inicializa chip de meta al cargar
   document.addEventListener('DOMContentLoaded', refreshMeta);
 })();
 
+
+/* =============================================================
+   ESC CIERRA MODALES
+   ============================================================= */
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    if(overlayGenero.classList.contains('open')) cerrarModalGenero();
+    if(overlayEvento.classList.contains('open')) cerrarModalEvento();
+    if(overlayEjemplo.classList.contains('open')) cerrarModalEjemplo();
+  }
+});
 </script>
 
 </body>
