@@ -434,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const partes = [estado, pop, (gen&&evt)?`${gen} – ${evt}`:(gen||evt), bpm, fase?`Set ${fase}`:"", version].filter(Boolean);
 
     const textoAlbum =
-      (version==="Mixz" && gen) ? `Mixz ${gen}${grupoTxt}${sufFase}` :
+      (version==="Mixz" && gen) ? `Mixz ${limpiarEmojiGenero(gen)}${grupoTxt}${sufFase}` :
       (version==="Rmxz" && gen) ? `R ${limpiarEmojiGenero(gen)}${grupoTxt}${sufFase}` :
       (version==="Original" && gen) ? `${gen}${grupoTxt}${sufFase}`   :
       partes.join(" | ");
