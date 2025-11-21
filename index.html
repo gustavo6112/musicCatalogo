@@ -90,6 +90,12 @@
     letter-spacing:.03em;
   }
 
+  /* FIX APLICADO AQUÍ */
+  .search-box {
+    position: relative;
+  }
+  /* FIN DEL FIX */
+
   .search-box input,
   .bpm-box input{
     width:100%;
@@ -223,30 +229,27 @@
     border-radius:8px;border:1px solid #ddd;background:#fff;
   }
 
+
 </style>
 </head>
 <body>
 
 <div class="wrap">
 
-  <!-- ===================== ESTADO ===================== -->
   <div class="title">🧾 Estado del Tema</div>
   <section class="card">
     <div id="estadoGroup" class="radio-grid"></div>
   </section>
 
-  <!-- ===================== POPULARIDAD ===================== -->
   <div class="title">📊 Popularidad</div>
   <section class="card">
     <div id="popularidadGroup" class="radio-grid"></div>
   </section>
 
-  <!-- ===================== GÉNERO · EVENTO · FASE · BPM ===================== -->
   <div class="title">🎵 Género · 🏷️ Evento · 🎛️ Fase · ⏱️ BPM</div>
   <section class="card">
     <div class="selectors">
 
-      <!-- ======== GÉNERO ======== -->
       <div class="search-box">
         <div class="sub">Género</div>
 
@@ -268,7 +271,6 @@
         </div>
       </div>
 
-      <!-- ======== EVENTO ======== -->
       <div class="search-box">
         <div class="sub">Evento</div>
 
@@ -278,7 +280,6 @@
         <div id="eventoList" class="list"></div>
       </div>
 
-      <!-- ======== FASE ======== -->
       <div class="search-box">
         <div class="sub">Fase del set</div>
 
@@ -286,7 +287,6 @@
         <div id="faseList" class="list"></div>
       </div>
 
-      <!-- ======== BPM ======== -->
       <div class="bpm-box">
         <div class="sub">
           BPM
@@ -302,12 +302,10 @@
     </div>
   </section>
 
-  <!-- ===================== RESULTADOS ===================== -->
   <div class="title">📌 Resultados</div>
   <section class="card">
     <div class="results-grid">
 
-      <!-- ARTISTA -->
       <div class="result-card">
         <div class="textarea-box">
           <div class="sub">🎤 Artista del Álbum</div>
@@ -316,7 +314,6 @@
         <button id="btnCopyMain" class="btn btn--brand">Copiar</button>
       </div>
 
-      <!-- ÁLBUM -->
       <div class="result-card">
         <div class="textarea-box">
           <div class="sub">💿 Álbum</div>
@@ -325,7 +322,6 @@
         <button id="btnCopyAlbum" class="btn">Copiar</button>
       </div>
 
-      <!-- MIXZ EXTRA -->
       <div class="result-card" id="mixzCard" style="display:none;">
         <div style="flex:1;display:flex;flex-direction:column">
           <div class="sub">🎤 Artista: Bailable</div>
@@ -336,7 +332,6 @@
 
     </div>
 
-    <!-- RESET -->
     <div class="reset-row" style="margin-top:8px; display:flex; justify-content:center;">
       <button id="btnReset" class="btn btn--reset"
         style="min-width:150px; background:linear-gradient(180deg,#461616 0%,#2a0d0d 100%); border-color:#d22;">
@@ -347,7 +342,6 @@
   </section>
 </div>
 
-<!-- ===================== MODAL GÉNERO ===================== -->
 <div id="modalGeneroOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
@@ -361,7 +355,6 @@
   </div>
 </div>
 
-<!-- ===================== MODAL EVENTO ===================== -->
 <div id="modalEventoOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
@@ -377,7 +370,6 @@
   </div>
 </div>
 
-<!-- ===================== MODAL EJEMPLOS FORMATO ===================== -->
 <div id="modalEjemploOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
@@ -392,7 +384,6 @@
   </div>
 </div>
 
-<!-- ===================== BIBLIOTECA LOCAL ===================== -->
 <div class="wrap" style="margin-top:-6px;">
   <section class="card" style="padding:8px 12px;">
     <div class="row-between" style="display:flex; justify-content:space-between; align-items:center;">
@@ -410,10 +401,8 @@
   </section>
 </div>
 
-<!-- Fallback -->
 <input id="inputFolderFallback" type="file" webkitdirectory multiple style="display:none" />
 
-<!-- Modal Biblioteca -->
 <div id="modalLocalOverlay" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-header">
@@ -431,8 +420,6 @@
     </div>
   </div>
 </div>
-
-<!-- Base de datos -->
 <script src="bdMusicData.js"></script>
 <script src="bdMusicLite.js"></script>
 
